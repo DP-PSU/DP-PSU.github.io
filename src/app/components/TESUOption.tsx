@@ -35,7 +35,7 @@ export default function TESUOption() {
             <br />
             <strong>Type: Exam (Pass / Fail) </strong>
           </Card.Text>
-          <Button variant="outline-primary" onClick={() => setVisible(true)}>
+          <Button variant="outline-info" onClick={() => setVisible(true)}>
             Details
           </Button>
         </Card.Body>

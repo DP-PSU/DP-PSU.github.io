@@ -22,7 +22,7 @@ export default function SophiaOption() {
             are no limits on the amount of courses you can finish within a
             month. Certain courses can be finished in less than a day!
           </Card.Text>
-          <Button variant="outline-primary" onClick={() => setVisible(true)}>
+          <Button variant="outline-info" onClick={() => setVisible(true)}>
             Details
           </Button>
         </Card.Body>

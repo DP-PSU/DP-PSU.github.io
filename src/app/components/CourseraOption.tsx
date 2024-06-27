@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 
-export default function StraighterlineOption() {
+export default function CourseraOption() {
   const [visible, setVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
@@ -10,20 +10,19 @@ export default function StraighterlineOption() {
   return (
     <>
       <Card className="mb-4">
-        <Card.Header>Transfer Option #3</Card.Header>
+        <Card.Header>Transfer Option #6</Card.Header>
         <Card.Body>
-          <Card.Title>StraighterLine</Card.Title>
+          <Card.Title>Coursera</Card.Title>
           <Card.Text>
-            <a href="https://imgs.search.brave.com/cxkHu0ko46hNSsbu2z8yf9QApKGoR5tM7ESwIKP5yjU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxzaW9yLmVk/dS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OC8wMS9sb2dvLXN0/cmFpZ2h0ZXJsaW5l/LTMwMHg1NC5qcGVn">
-              StraighterLine
+            <a href="https://degreeforum.miraheze.org/wiki/Coursera">
+              Coursera
             </a>{" "}
-            is a self-paced, open-book online education platform that offers a
-            variety of course (mostly general education courses) for credit.
-            Courses provided by StraighterLine are accessible through a montly
-            subscription plus a charge for each course taken. Straighterline
-            requires proctoring for a course final exam. <br />
+            offers a service that allows students to earn college credit for
+            completing their courses. Coursera, provides, certificates and
+            badges that can be granted for credit.
             <br />
-            <strong>Good for ENGL 15 and PHYS 250</strong>
+            <br />
+            <strong>Good for EE 456, BA XFR100, CMPSC XFR200</strong>
             <br />
             <br />
             <strong>Type: Self-Paced Course (Pass / Fail)</strong>
@@ -33,12 +32,12 @@ export default function StraighterlineOption() {
           </Button>
         </Card.Body>
       </Card>
-      <StraighterlineModal visible={visible} handleClose={handleClose} />
+      <CourseraModal visible={visible} handleClose={handleClose} />
     </>
   );
 }
 
-function StraighterlineModal({
+function CourseraModal({
   visible,
   handleClose,
 }: {
@@ -48,27 +47,30 @@ function StraighterlineModal({
   return (
     <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>Straighterline details</Modal.Title>
+        <Modal.Title>Coursera details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h2>Cost</h2>
         <p>
-          You have to pay a mentorship fee of $99 no matter what course you
-          take. You also have to pay for the course you want to take. If you
-          take ENGL 15, it will cost $178. If you take PHYS 250, it should cost
-          $247.
+          Coursera plan&apos;s costs around $50 per month. However, many of the
+          coursework, unless you work fast, take 2 to 3 months.{" "}
         </p>
         <h2>Transfer</h2>
-        <p>You can explore other course equivalencies on StraighterLine by:</p>
+        <p>
+          You can explore other course equivalencies on Coursera courses by:
+        </p>
         <ol>
-          <li>Searching Google for Penn State Transfer Option Tool </li>
-          <li>Click on the Transfer Option Tool</li>
+          <li>Searching Google for Penn State Transfer Credit Tool </li>
+          <li>Click on the Transfer Credit Tool</li>
           <li>Opt for Search by Institution.</li>
           <li>
             Under Institution, enter: American Council on Education (DC):
             100138677.
           </li>
-          <li>For Course, enter: OOSL - STRAIGHTERLINE (ALL Courses).</li>
+          <li>
+            For Course, enter: GOOG - GOOGLE (ALL Courses) or DLAI - DEEP
+            LEARNING SPECIALIZATION (ALL Courses).
+          </li>
           <li>Finally, click on Search </li>
         </ol>
         <h2>How to Send Transcript</h2>
@@ -86,10 +88,11 @@ function StraighterlineModal({
         </p>
         <h2>Notes</h2>
         <p>
-          Both Thomas Edison University (exam option) and StraighterLine (course
-          option) offer ENGL 15. Keep in mind in order to get credit for PHYS
-          250, you must take BOTH General Physics 1 and General Physics 1 Lab
-          for PHYS 250 credit. Otherwise, you will not get credit for PHYS 250.
+          The Deep Learning Specialization offers EE 456 - Intro to Neural
+          Networks. This course is great for any majors in the school of EECS
+          (counts as an elective) and perhaps any other engineering major. The
+          Google certificates can be used to fufill department list (free
+          credits) for some majors.{" "}
         </p>
       </Modal.Body>
       <Modal.Footer>

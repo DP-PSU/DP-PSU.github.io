@@ -27,7 +27,7 @@ export default function WestcottOption() {
             <br />
             <strong>Type: Self Paced with Grade</strong>
           </Card.Text>
-          <Button variant="outline-primary" onClick={() => setVisible(true)}>
+          <Button variant="outline-info" onClick={() => setVisible(true)}>
             Details
           </Button>
         </Card.Body>
@@ -47,7 +47,7 @@ function WestcottModal({
   return (
     <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
-        <Modal.Title>TESU details</Modal.Title>
+        <Modal.Title>Westcott details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <h2>Cost</h2>

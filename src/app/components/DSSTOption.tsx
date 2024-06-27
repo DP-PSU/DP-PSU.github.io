@@ -11,6 +11,12 @@ export default function DSSTOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #5</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://getcollegecredit.com/wp-content/uploads/2022/08/logo-1.png"
+          alt="DSST Image"
+          style={{ width: "25%" }}
+        />
         <Card.Body>
           <Card.Title>DSST Exams</Card.Title>
           <Card.Text>
@@ -31,8 +37,18 @@ export default function DSSTOption() {
             <br />
             <strong>Type: Exam (Pass / Fail)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

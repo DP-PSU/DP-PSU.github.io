@@ -11,6 +11,12 @@ export default function TESUOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #2</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://study.com/images/company/partnersPage/tesu-logo-color.png"
+          alt="TESU image"
+          style={{ width: "25%" }}
+        />
         <Card.Body>
           <Card.Title>Thomas Edison State University</Card.Title>
           <Card.Text>
@@ -35,8 +41,18 @@ export default function TESUOption() {
             <br />
             <strong>Type: Exam (Pass / Fail) </strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

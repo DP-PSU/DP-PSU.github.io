@@ -11,6 +11,12 @@ export default function StudyhallOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #8</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://gostudyhall.com/images/landingNavbar/SH-Character-AvatarQuote.svg"
+          alt="Study Hall Image"
+          style={{ width: "15%" }}
+        />
         <Card.Body>
           <Card.Title>Study Hall</Card.Title>
           <Card.Text>
@@ -27,8 +33,18 @@ export default function StudyhallOption() {
             <br />
             <strong>Type: Instructional (Grade)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

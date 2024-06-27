@@ -11,6 +11,11 @@ export default function StraighterlineOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #3</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://www.excelsior.edu/wp-content/uploads/2018/01/logo-straighterline.jpeg"
+          alt="StraighterLine image"
+          style={{ width: "25%" }}/>
         <Card.Body>
           <Card.Title>StraighterLine</Card.Title>
           <Card.Text>
@@ -28,8 +33,18 @@ export default function StraighterlineOption() {
             <br />
             <strong>Type: Self-Paced Course (Pass / Fail)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

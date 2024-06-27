@@ -10,7 +10,13 @@ export default function SophiaOption() {
   return (
     <>
       <Card className="mb-4">
-        <Card.Header>Transfer Option #1</Card.Header>
+        <Card.Header>Transfer Option #1</Card.Header>{" "}
+        <Card.Img
+          variant="top"
+          src="https://images.squarespace-cdn.com/content/v1/5bec669f9f877016e7212b2d/436820c3-96ed-42f3-a35b-0ae4deaf227b/Sophia+Learning+Logo"
+          alt="Sophia Learning image"
+          style={{ width: "25%" }}
+        />
         <Card.Body>
           <Card.Title>Sophia Learning</Card.Title>
           <Card.Text>
@@ -21,9 +27,25 @@ export default function SophiaOption() {
             subscription. While you can work on 2 courses simultaneously, there
             are no limits on the amount of courses you can finish within a
             month. Certain courses can be finished in less than a day!
+            <br />
+            <br />
+            <strong>Good for Almost All Gen Ed Categories:</strong>
+            <br />
+            <br />
+            <strong>Type: Self-Paced (Pass / Fail)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

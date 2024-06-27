@@ -11,6 +11,11 @@ export default function CourseraOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #6</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://imgs.search.brave.com/8nNisAp-P6_NDncU8UQKaaU5jCFzmHRmqQ0BBuj0x-A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/Lzk3L0NvdXJzZXJh/LUxvZ29fNjAweDYw/MC5zdmc.svg"
+          alt="Coursera Image"
+          style={{ width: "10%" }}/>
         <Card.Body>
           <Card.Title>Coursera</Card.Title>
           <Card.Text>
@@ -27,8 +32,18 @@ export default function CourseraOption() {
             <br />
             <strong>Type: Self-Paced Course (Pass / Fail)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

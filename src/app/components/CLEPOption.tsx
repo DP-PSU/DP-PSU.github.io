@@ -11,6 +11,11 @@ export default function CLEPOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #4</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CLEP_logo_%282017%29.svg/1200px-CLEP_logo_%282017%29.svg.png"
+          alt="CLEP image"
+          style={{ width: "15%" }}/> 
         <Card.Body>
           <Card.Title>CLEP</Card.Title>
           <Card.Text>
@@ -34,8 +39,18 @@ export default function CLEPOption() {
             <br />
             <strong>Type: Exam (Pass / Fail) </strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

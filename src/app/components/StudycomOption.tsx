@@ -11,6 +11,11 @@ export default function StudycomOption() {
     <>
       <Card className="mb-4">
         <Card.Header>Transfer Option #7</Card.Header>
+        <Card.Img
+          variant="top"
+          src="https://images.ctfassets.net/a7hvy8sclsq6/115KJfTy7cOqoxv52EvpeF/1f78746b783fa2e600eb4c8a806a9e35/Study-dot-com-logo.png"
+          alt="Study.com Image"
+          style={{ width: "25%" }}/>
         <Card.Body>
           <Card.Title>Study.com</Card.Title>
           <Card.Text>
@@ -24,8 +29,18 @@ export default function StudycomOption() {
             <br />
             <strong>Type: Self-Paced Course (Pass / Fail)</strong>
           </Card.Text>
-          <Button variant="outline-info" onClick={() => setVisible(true)}>
+          <Button
+            variant="outline-info"
+            className="me-3"
+            onClick={() => setVisible(true)}
+          >
             Details
+          </Button>
+          <Button
+            variant="outline-success"
+            onClick={() => alert("Functionality not implemented yet.")}
+          >
+            Review
           </Button>
         </Card.Body>
       </Card>

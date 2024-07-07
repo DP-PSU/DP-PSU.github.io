@@ -40,10 +40,17 @@ export default function SophiaOption() {
           </Card.Text>
           <Button
             variant="outline-info"
-            className="me-3"
+            className="me-2"
             onClick={() => setVisible(true)}
           >
             Details
+          </Button>
+          <Button
+            variant="outline-primary"
+            className="me-2"
+            onClick={() => alert("Coming soon!")}
+          >
+            View Ratings
           </Button>
           <Button
             variant="outline-success"

@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import ReviewModal from "./ReviewModal";
 
 export default function StudycomOption() {
   const [visible, setVisible] = useState(false);
+  const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
+  const handleReviewClose = () => setReviewVisible(false);
 
   return (
     <>
@@ -15,7 +18,8 @@ export default function StudycomOption() {
           variant="top"
           src="https://images.ctfassets.net/a7hvy8sclsq6/115KJfTy7cOqoxv52EvpeF/1f78746b783fa2e600eb4c8a806a9e35/Study-dot-com-logo.png"
           alt="Study.com Image"
-          style={{ width: "25%" }}/>
+          style={{ width: "25%" }}
+        />
         <Card.Body>
           <Card.Title>Study.com</Card.Title>
           <Card.Text>
@@ -38,13 +42,18 @@ export default function StudycomOption() {
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => alert("Functionality not implemented yet.")}
+            onClick={() => setReviewVisible(true)}
           >
-            Review
+            Rate or Review this option
           </Button>
         </Card.Body>
       </Card>
       <StudycomModal visible={visible} handleClose={handleClose} />
+      <ReviewModal
+        option="studycom"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+      />
     </>
   );
 }

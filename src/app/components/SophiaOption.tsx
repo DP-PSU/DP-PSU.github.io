@@ -1,11 +1,15 @@
+import { Rating } from "@mui/material";
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import ReviewModal from "./ReviewModal";
 
 export default function SophiaOption() {
   const [visible, setVisible] = useState(false);
+  const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
+  const handleReviewClose = () => setReviewVisible(false);
 
   return (
     <>
@@ -43,13 +47,18 @@ export default function SophiaOption() {
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => alert("Functionality not implemented yet.")}
+            onClick={() => setReviewVisible(true)}
           >
-            Review
+            Rate or Review this option
           </Button>
         </Card.Body>
       </Card>
       <SophiaModal visible={visible} handleClose={handleClose} />
+      <ReviewModal
+        option="sophia"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+      />
     </>
   );
 }

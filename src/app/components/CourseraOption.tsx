@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import ReviewModal from "./ReviewModal";
 
 export default function CourseraOption() {
   const [visible, setVisible] = useState(false);
+  const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
+  const handleReviewClose = () => setReviewVisible(false);
 
   return (
     <>
@@ -15,7 +18,8 @@ export default function CourseraOption() {
           variant="top"
           src="https://imgs.search.brave.com/8nNisAp-P6_NDncU8UQKaaU5jCFzmHRmqQ0BBuj0x-A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/Lzk3L0NvdXJzZXJh/LUxvZ29fNjAweDYw/MC5zdmc.svg"
           alt="Coursera Image"
-          style={{ width: "10%" }}/>
+          style={{ width: "10%" }}
+        />
         <Card.Body>
           <Card.Title>Coursera</Card.Title>
           <Card.Text>
@@ -41,13 +45,18 @@ export default function CourseraOption() {
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => alert("Functionality not implemented yet.")}
+            onClick={() => setReviewVisible(true)}
           >
-            Review
+            Rate or Review this option
           </Button>
         </Card.Body>
       </Card>
       <CourseraModal visible={visible} handleClose={handleClose} />
+      <ReviewModal
+        option="coursera"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+      />
     </>
   );
 }

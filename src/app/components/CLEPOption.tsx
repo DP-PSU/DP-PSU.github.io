@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import ReviewModal from "./ReviewModal";
 
 export default function CLEPOption() {
   const [visible, setVisible] = useState(false);
+  const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
+  const handleReviewClose = () => setReviewVisible(false);
 
   return (
     <>
@@ -15,7 +18,8 @@ export default function CLEPOption() {
           variant="top"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CLEP_logo_%282017%29.svg/1200px-CLEP_logo_%282017%29.svg.png"
           alt="CLEP image"
-          style={{ width: "15%" }}/> 
+          style={{ width: "15%" }}
+        />
         <Card.Body>
           <Card.Title>CLEP</Card.Title>
           <Card.Text>
@@ -48,13 +52,18 @@ export default function CLEPOption() {
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => alert("Functionality not implemented yet.")}
+            onClick={() => setReviewVisible(true)}
           >
-            Review
+            Rate or Review this option
           </Button>
         </Card.Body>
       </Card>
       <CLEPModal visible={visible} handleClose={handleClose} />
+      <ReviewModal
+        option="clep"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+      />
     </>
   );
 }

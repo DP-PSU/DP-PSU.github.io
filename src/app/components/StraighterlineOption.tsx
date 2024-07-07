@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
+import ReviewModal from "./ReviewModal";
 
 export default function StraighterlineOption() {
   const [visible, setVisible] = useState(false);
+  const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
+  const handleReviewClose = () => setReviewVisible(false);
 
   return (
     <>
@@ -15,7 +18,8 @@ export default function StraighterlineOption() {
           variant="top"
           src="https://www.excelsior.edu/wp-content/uploads/2018/01/logo-straighterline.jpeg"
           alt="StraighterLine image"
-          style={{ width: "25%" }}/>
+          style={{ width: "25%" }}
+        />
         <Card.Body>
           <Card.Title>StraighterLine</Card.Title>
           <Card.Text>
@@ -42,13 +46,18 @@ export default function StraighterlineOption() {
           </Button>
           <Button
             variant="outline-success"
-            onClick={() => alert("Functionality not implemented yet.")}
+            onClick={() => setReviewVisible(true)}
           >
-            Review
+            Rate or Review this option
           </Button>
         </Card.Body>
       </Card>
       <StraighterlineModal visible={visible} handleClose={handleClose} />
+      <ReviewModal
+        option="straighterline"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+      />
     </>
   );
 }

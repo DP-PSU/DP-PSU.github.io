@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
+import ViewRatingsModal from "./ViewRatingsModal";
 
 export default function WestcottOption() {
   const [visible, setVisible] = useState(false);
@@ -9,6 +10,9 @@ export default function WestcottOption() {
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
+
+  const [ratingsVisible, setRatingsVisible] = useState(false);
+  const handleRatingsClose = () => setRatingsVisible(false);
 
   return (
     <>
@@ -38,10 +42,17 @@ export default function WestcottOption() {
           </Card.Text>
           <Button
             variant="outline-info"
-            className="me-3"
+            className="me-2"
             onClick={() => setVisible(true)}
           >
             Details
+          </Button>
+          <Button
+            variant="outline-primary"
+            className="me-2"
+            onClick={() => setRatingsVisible(true)}
+          >
+            View Ratings
           </Button>
           <Button
             variant="outline-success"
@@ -52,6 +63,12 @@ export default function WestcottOption() {
         </Card.Body>
       </Card>
       <WestcottModal visible={visible} handleClose={handleClose} />
+      <ViewRatingsModal
+        option="westcott"
+        visible={ratingsVisible}
+        handleClose={handleRatingsClose}
+        setVisible={setRatingsVisible}
+      />
       <ReviewModal
         option="westcott"
         visible={reviewVisible}

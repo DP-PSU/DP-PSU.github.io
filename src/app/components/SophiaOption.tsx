@@ -2,6 +2,7 @@ import { Rating } from "@mui/material";
 import { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
+import ViewRatingsModal from "./ViewRatingsModal";
 
 export default function SophiaOption() {
   const [visible, setVisible] = useState(false);
@@ -10,6 +11,9 @@ export default function SophiaOption() {
   const handleClose = () => setVisible(false);
   const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
+
+  const [ratingsVisible, setRatingsVisible] = useState(false);
+  const handleRatingsClose = () => setRatingsVisible(false);
 
   return (
     <>
@@ -48,7 +52,7 @@ export default function SophiaOption() {
           <Button
             variant="outline-primary"
             className="me-2"
-            onClick={() => alert("Coming soon!")}
+            onClick={() => setRatingsVisible(true)}
           >
             View Ratings
           </Button>
@@ -61,6 +65,12 @@ export default function SophiaOption() {
         </Card.Body>
       </Card>
       <SophiaModal visible={visible} handleClose={handleClose} />
+      <ViewRatingsModal
+        option="sophia"
+        visible={ratingsVisible}
+        handleClose={handleRatingsClose}
+        setVisible={setRatingsVisible}
+      />
       <ReviewModal
         option="sophia"
         visible={reviewVisible}

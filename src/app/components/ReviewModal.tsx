@@ -82,12 +82,12 @@ const onReviewSubmit = async (
   const name = formData.get("name") as string;
   const review = formData.get("review-data") as string;
 
-  const reviewReq = await fetch("/api/review/submit", {
+  const reviewReq = await fetch("/api/reviews/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, rating, review }),
+    body: JSON.stringify({ option, name, rating, review }),
   });
 
   const reviewButton = document.getElementById("review-submit")!;

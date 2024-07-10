@@ -44,15 +44,19 @@ export default function ReviewModal({
             <Form.Control type="text" name="name" placeholder="Name" />
           </FormGroup>
           <FormGroup controlId="formGroupReview">
-            <Form.Label>Your Review</Form.Label>
+            <Form.Label className="mt-2">Your Review</Form.Label>
             <Form.Control
               as="textarea"
               name="review-data"
               placeholder="I thought this was really cool..."
-              required
             />
           </FormGroup>
-          <Button variant="success" type="submit" id="review-submit">
+          <Button
+            variant="success"
+            type="submit"
+            id="review-submit"
+            className="mt-2"
+          >
             Submit Rating
           </Button>
         </Form>
@@ -78,7 +82,11 @@ const onReviewSubmit = async (
   const formData = new FormData(event.currentTarget);
 
   const rating = formData.get(`${option}-rating`) as string;
-  if (!rating) return alert("Please provide a rating!");
+  if (!rating) {
+    document.getElementById("review-submit")!.innerText = "Submit Rating";
+    document.getElementById("review-submit")!.removeAttribute("disabled");
+    return alert("You must provide a rating.");
+  }
   const name = formData.get("name") as string;
   const review = formData.get("review-data") as string;
 
@@ -109,8 +117,7 @@ const onReviewSubmit = async (
     reviewButton.innerText = "Submit Rating";
     reviewButton.classList.remove("btn-danger");
     reviewButton.classList.add("btn-success");
-  }
-  else {
+  } else {
     reviewButton.classList.remove("btn-success");
     reviewButton.classList.add("btn-danger");
     reviewButton.innerText = "Error submitting review.";

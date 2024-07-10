@@ -54,7 +54,7 @@ export default function ViewRatingsModal({
                   Rated {rating.rating}/5 by{" "}
                   {rating.name.length ? rating.name : "Anonymous"}
                   <br />
-                  {rating.reviewText}
+                  {rating.reviewText.length ? rating.reviewText : ''}
                 </CardContent>
               </Card>
             </Fragment>

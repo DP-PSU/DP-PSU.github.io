@@ -56,7 +56,7 @@ export default function ReviewModal({
   );
 }
 
-const onReviewSubmit = (
+const onReviewSubmit = async (
   event: React.FormEvent<HTMLFormElement>,
   option: string
 ) => {
@@ -70,4 +70,12 @@ const onReviewSubmit = (
   const review = formData.get("review-data") as string;
 
   alert(`Rating: ${rating}\nName: ${name}\nReview: ${review}`);
+
+  const reviewReq = await fetch("/api/review/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, rating, review })
+  });
 };

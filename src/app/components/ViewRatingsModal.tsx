@@ -25,6 +25,7 @@ export default function ViewRatingsModal({
   const [ratings, setRatings] = useState<JSX.Element[]>([
     <p key={0}>Loading...</p>,
   ]);
+  const [averageRating, setAverageRating] = useState<number>(null!);
 
   useEffect(() => {
     const fetchRatings = async () => {
@@ -37,33 +38,47 @@ export default function ViewRatingsModal({
       });
 
       const r = await response.json();
-      //  (r as Array<Object>).map(rating => Object.entries(rating))
-      // for (Object obj in r) {
 
-      // }
-      const rText = (r as Array<any>).length
-        ? (r as Array<any>).map((rating, index) => (
-            <Fragment key={index}>
-              <Card variant="outlined" className="mb-2 bg-secondary">
-                <CardContent>
-                  <Rating
-                    disabled={true}
-                    precision={0.5}
-                    value={Number(rating.rating)}
-                  />{" "}
-                  Rated {rating.rating}/5 by{" "}
-                  {rating.name.length ? rating.name : "Anonymous"}
-                  <br />
-                  {rating.reviewText.length ? rating.reviewText : ""}
-                </CardContent>
-              </Card>
-            </Fragment>
-          ))
-        : [
-            <Card variant="outlined" className="mb-2 bg-secondary" key={0}>
-              <CardContent>No reviews yet.</CardContent>
-            </Card>,
-          ];
+      var averageRating =
+        (r as Array<any>).reduce((total, r) => total + Number(r.rating), 0) /
+        (r as Array<any>).length;
+      averageRating = +averageRating.toFixed(2);
+
+      const rText = [
+        <Fragment key={-1}>
+          <Rating disabled={true} precision={0.1} value={averageRating} />
+          <p>
+            {Number.isNaN(averageRating)
+              ? ""
+              : `Average Rating: ${averageRating}/5`}
+          </p>
+        </Fragment>,
+      ].concat(
+        (r as Array<any>).length
+          ? (r as Array<any>).map((rating, index) => (
+              <Fragment key={index}>
+                <Card variant="outlined" className="mb-2 bg-secondary">
+                  <CardContent>
+                    <Rating
+                      disabled={true}
+                      precision={0.5}
+                      value={Number(rating.rating)}
+                    />{" "}
+                    Rated {rating.rating}/5 by{" "}
+                    {rating.name.length ? rating.name : "Anonymous"}
+                    <br />
+                    {rating.reviewText.length ? rating.reviewText : ""}
+                  </CardContent>
+                </Card>
+              </Fragment>
+            ))
+          : [
+              <Card variant="outlined" className="mb-2 bg-secondary" key={0}>
+                <CardContent>No reviews yet.</CardContent>
+              </Card>,
+            ]
+      );
+
       setRatings(rText);
     };
     fetchRatings();

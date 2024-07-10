@@ -1,8 +1,32 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
+import { Velocity } from "velocity-api";
 
 export async function POST(req: Request) {
   const { option, name, rating, review } = await req.json();
+
+  // check review for toxicity, spam, or any
+  if (process.env.VELOCITY_API_KEY) {
+    const velocityAPI = new Velocity(process.env.VELOCITY_API_KEY!);
+    const reviewScores = await velocityAPI.processMessage(review, {
+      attributes: ["TOXICITY", "PROFANITY", "SPAM"],
+      languages: ["en"],
+      doNotStore: true,
+    });
+
+    if (
+      reviewScores.SPAM > 0.7 ||
+      reviewScores.PROFANITY > 0.7 ||
+      reviewScores.TOXICITY > 0.7
+    ) {
+      return new NextResponse(
+        JSON.stringify({
+          message: "Review contains spam, profanity, or toxicity",
+        }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+  }
 
   const client = new MongoClient(process.env.MONGODB_CONNECTION_URI!);
 

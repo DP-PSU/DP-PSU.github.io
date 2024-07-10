@@ -99,7 +99,18 @@ const onReviewSubmit = async (
     await new Promise((r) => setTimeout(r, 1000));
 
     setModalVisible(false);
-  } else {
+  } else if (reviewReq.status == 400) {
+    reviewButton.classList.remove("btn-success");
+    reviewButton.classList.add("btn-danger");
+    reviewButton.innerText = "Review contains spam, profanity, or toxicity.";
+
+    await new Promise((r) => setTimeout(r, 2000));
+
+    reviewButton.innerText = "Submit Rating";
+    reviewButton.classList.remove("btn-danger");
+    reviewButton.classList.add("btn-success");
+  }
+  else {
     reviewButton.classList.remove("btn-success");
     reviewButton.classList.add("btn-danger");
     reviewButton.innerText = "Error submitting review.";

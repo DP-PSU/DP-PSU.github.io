@@ -1,4 +1,4 @@
-import { Rating } from "@mui/material";
+import { Card, CardContent, CardHeader, Rating } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { Button, Form, FormGroup, Modal } from "react-bootstrap";
 
@@ -44,13 +44,19 @@ export default function ViewRatingsModal({
       const rText = (r as Array<any>).length
         ? (r as Array<any>).map((rating, index) => (
             <Fragment key={index}>
-              <h3>
-                Name: {rating.name.length ? rating.name : "Anonymous"}; Rating:{" "}
-                {rating.rating}
-              </h3>
-              <Rating disabled={true} value={Number(rating.rating)} />
-              <br />
-              <p>{rating.reviewText}</p>
+              <Card variant="outlined" className="mb-2 bg-secondary">
+                <CardContent>
+                  <Rating
+                    disabled={true}
+                    precision={0.5}
+                    value={Number(rating.rating)}
+                  />{" "}
+                  Rated {rating.rating}/5 by{" "}
+                  {rating.name.length ? rating.name : "Anonymous"}
+                  <br />
+                  {rating.reviewText}
+                </CardContent>
+              </Card>
             </Fragment>
           ))
         : [<p key={0}>No reviews yet.</p>];
@@ -62,7 +68,9 @@ export default function ViewRatingsModal({
   return (
     <Modal show={visible} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Reviews for {option}</Modal.Title>
+        <Modal.Title>
+          Reviews for {option[0].toLocaleUpperCase() + option.slice(1)}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body>{ratings}</Modal.Body>
     </Modal>

@@ -1,5 +1,13 @@
-import { Rating } from "@mui/material";
-import { Button, Form, FormGroup, Modal } from "react-bootstrap";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  Rating,
+  Button as MaterialUIButton,
+  DialogActions,
+} from "@mui/material";
+import { useState } from "react";
+import { Button, Col, Form, FormGroup, Modal, Row } from "react-bootstrap";
 
 export default function ReviewModal({
   option,
@@ -21,6 +29,8 @@ export default function ReviewModal({
   handleClose: () => void;
   setVisible: (visible: boolean) => void;
 }>) {
+  const [noRatingVisible, setNoRatingVisible] = useState(false);
+
   return (
     <Modal show={visible} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -30,18 +40,33 @@ export default function ReviewModal({
       </Modal.Header>
       <Modal.Body>
         <Form
-          onSubmit={(event) => onReviewSubmit(event, option, setVisible)}
+          onSubmit={(event) =>
+            onReviewSubmit(event, option, setVisible, setNoRatingVisible)
+          }
           id="review-form"
         >
-          <FormGroup controlId="formGroupRating">
-            <Form.Label>Your overall rating: </Form.Label>
-            <Rating name={`${option}-rating`} precision={0.5} aria-required />
-          </FormGroup>
-          <FormGroup controlId="formGroupName">
-            <Form.Label>
-              Name (This is not required if you would like to remain anonymous)
-            </Form.Label>
-            <Form.Control type="text" name="name" placeholder="Name" />
+          <Row className="justify-content-center">
+            <Col xs={12} sm={6} md={4}>
+              <FormGroup controlId="formGroupRating" as={Col}>
+                <Form.Label>
+                  Overall Rating <span style={{ color: "red" }}>*</span>
+                </Form.Label>
+                <Rating
+                  name={`${option}-rating`}
+                  precision={0.5}
+                  aria-required
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <FormGroup controlId="formGroupName" as={Col}>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              name="name"
+              placeholder="Name"
+              className="mb-3"
+            />
           </FormGroup>
           <FormGroup controlId="formGroupReview">
             <Form.Label className="mt-2">Your Review</Form.Label>
@@ -55,12 +80,23 @@ export default function ReviewModal({
             variant="success"
             type="submit"
             id="review-submit"
-            className="mt-2"
+            className="w-100 mt-4"
           >
             Submit Rating
           </Button>
         </Form>
       </Modal.Body>
+      <Dialog open={noRatingVisible}>
+        <DialogTitle>Rating Required</DialogTitle>
+        <DialogContent>
+          You must provide a rating to submit a review.
+        </DialogContent>
+        <DialogActions>
+          <MaterialUIButton onClick={() => setNoRatingVisible(false)}>
+            Close
+          </MaterialUIButton>
+        </DialogActions>
+      </Dialog>
     </Modal>
   );
 }
@@ -68,7 +104,8 @@ export default function ReviewModal({
 const onReviewSubmit = async (
   event: React.FormEvent<HTMLFormElement>,
   option: string,
-  setModalVisible: (visible: boolean) => void
+  setModalVisible: (visible: boolean) => void,
+  setNoRatingVisible: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   event.preventDefault();
 
@@ -85,7 +122,7 @@ const onReviewSubmit = async (
   if (!rating) {
     document.getElementById("review-submit")!.innerText = "Submit Rating";
     document.getElementById("review-submit")!.removeAttribute("disabled");
-    return alert("You must provide a rating.");
+    return setNoRatingVisible(true);
   }
   const name = formData.get("name") as string;
   const review = formData.get("review-data") as string;

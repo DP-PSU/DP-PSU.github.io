@@ -54,12 +54,16 @@ export default function ViewRatingsModal({
                   Rated {rating.rating}/5 by{" "}
                   {rating.name.length ? rating.name : "Anonymous"}
                   <br />
-                  {rating.reviewText.length ? rating.reviewText : ''}
+                  {rating.reviewText.length ? rating.reviewText : ""}
                 </CardContent>
               </Card>
             </Fragment>
           ))
-        : [<p key={0}>No reviews yet.</p>];
+        : [
+            <Card variant="outlined" className="mb-2 bg-secondary" key={0}>
+              <CardContent>No reviews yet.</CardContent>
+            </Card>,
+          ];
       setRatings(rText);
     };
     fetchRatings();

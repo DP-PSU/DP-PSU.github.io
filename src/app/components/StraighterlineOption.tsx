@@ -57,6 +57,7 @@ export default function StraighterlineOption() {
         option="straighterline"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

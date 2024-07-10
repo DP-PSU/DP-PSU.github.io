@@ -56,6 +56,7 @@ export default function CourseraOption() {
         option="coursera"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

@@ -60,6 +60,7 @@ export default function DSSTOption() {
         option="dsst"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

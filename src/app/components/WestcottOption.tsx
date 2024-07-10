@@ -52,7 +52,12 @@ export default function WestcottOption() {
         </Card.Body>
       </Card>
       <WestcottModal visible={visible} handleClose={handleClose} />
-      <ReviewModal option="westcott" visible={reviewVisible} handleClose={handleReviewClose} />
+      <ReviewModal
+        option="westcott"
+        visible={reviewVisible}
+        handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
+      />
     </>
   );
 }

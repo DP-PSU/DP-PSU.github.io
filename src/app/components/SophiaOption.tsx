@@ -65,6 +65,7 @@ export default function SophiaOption() {
         option="sophia"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

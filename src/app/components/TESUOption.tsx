@@ -64,6 +64,7 @@ export default function TESUOption() {
         option="tesu"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

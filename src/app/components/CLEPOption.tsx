@@ -63,6 +63,7 @@ export default function CLEPOption() {
         option="clep"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

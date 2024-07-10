@@ -53,6 +53,7 @@ export default function StudycomOption() {
         option="studycom"
         visible={reviewVisible}
         handleClose={handleReviewClose}
+        setVisible={setReviewVisible}
       />
     </>
   );

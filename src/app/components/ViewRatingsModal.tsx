@@ -1,6 +1,12 @@
-import { Card, CardContent, CardHeader, Rating } from "@mui/material";
+import { Card, CardContent, Rating, styled } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
-import { Button, Form, FormGroup, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+
+const StyledAverageRating = styled(Rating)({
+  "& .MuiRating-iconFilled": {
+    color: "darkblue",
+  },
+});
 
 export default function ViewRatingsModal({
   option,
@@ -25,7 +31,6 @@ export default function ViewRatingsModal({
   const [ratings, setRatings] = useState<JSX.Element[]>([
     <p key={0}>Loading...</p>,
   ]);
-  const [averageRating, setAverageRating] = useState<number>(null!);
 
   useEffect(() => {
     const fetchRatings = async () => {
@@ -45,8 +50,14 @@ export default function ViewRatingsModal({
       averageRating = +averageRating.toFixed(2);
 
       const rText = [
-        <Fragment key={-1}>
-          <Rating disabled={true} precision={0.1} value={averageRating} />
+        <Fragment key={0}>
+          <StyledAverageRating
+            disabled={true}
+            precision={0.1}
+            value={averageRating}
+            size="large"
+            hidden={Number.isNaN(averageRating)}
+          />
           <p>
             {Number.isNaN(averageRating)
               ? ""
@@ -56,8 +67,8 @@ export default function ViewRatingsModal({
       ].concat(
         (r as Array<any>).length
           ? (r as Array<any>).map((rating, index) => (
-              <Fragment key={index}>
-                <Card variant="outlined" className="mb-2 bg-secondary">
+              <Fragment key={index + 1}>
+                <Card variant="outlined" className="mb-2 bg-review">
                   <CardContent>
                     <Rating
                       disabled={true}
@@ -72,11 +83,7 @@ export default function ViewRatingsModal({
                 </Card>
               </Fragment>
             ))
-          : [
-              <Card variant="outlined" className="mb-2 bg-secondary" key={0}>
-                <CardContent>No reviews yet.</CardContent>
-              </Card>,
-            ]
+          : [<p key={0}>No reviews yet :(</p>]
       );
 
       setRatings(rText);
@@ -85,7 +92,7 @@ export default function ViewRatingsModal({
   }, [option, visible]);
 
   return (
-    <Modal show={visible} onHide={handleClose}>
+    <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>
         <Modal.Title>
           Reviews for {option[0].toLocaleUpperCase() + option.slice(1)}

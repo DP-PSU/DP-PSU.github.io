@@ -1,0 +1,14 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.modal-wide {
+  width: 90%;
+}
+.bg-review {
+  background-color: aliceblue !important;
+}
+
+.bg-review:hover {
+  transform: scale(1.03);
+}

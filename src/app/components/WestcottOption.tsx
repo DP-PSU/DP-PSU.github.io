@@ -8,7 +8,6 @@ export default function WestcottOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,12 +22,19 @@ export default function WestcottOption() {
           src="https://imgs.search.brave.com/KKQssDYJ1r21M1x7izuuCfYgd0vgJZ6XIBvfN2ESbxo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93ZXN0/Y290dGNvdXJzZXMu/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIyLzA0L3dlc3Rj/b3R0LWxvZ28ucG5n"
           alt="Westcott image"
           style={{ width: "15%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>WestCott Courses</Card.Title>
           <Card.Text>
-            <a href="https://westcottcourses.com/">Westcott Courses</a> are
-            self-paced, instructor-led courses with open-book midterms and
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://westcottcourses.com/"
+            >
+              Westcott Courses
+            </a>{" "}
+            are self-paced, instructor-led courses with open-book midterms and
             homeworks. The University of Massachusetts Global has formed a
             partnership with Westcott courses for these courses to be available
             for credit. The final, however, is proctored. The courses are

@@ -9,7 +9,6 @@ export default function SophiaOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -24,12 +23,19 @@ export default function SophiaOption() {
           src="https://images.squarespace-cdn.com/content/v1/5bec669f9f877016e7212b2d/436820c3-96ed-42f3-a35b-0ae4deaf227b/Sophia+Learning+Logo"
           alt="Sophia Learning image"
           style={{ width: "25%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>Sophia Learning</Card.Title>
           <Card.Text>
-            <a href="https://www.sophia.org">Sophia Learning</a> is a
-            self-paced, open-book online education platform that offers a
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://www.sophia.org"
+            >
+              Sophia Learning
+            </a>{" "}
+            is a self-paced, open-book online education platform that offers a
             variety of course (mostly general education courses) for credit.
             Courses provided by Sophia are accessible through a montly
             subscription. While you can work on 2 courses simultaneously, there
@@ -37,7 +43,7 @@ export default function SophiaOption() {
             month. Certain courses can be finished in less than a day!
             <br />
             <br />
-            <strong>Good for Almost All Gen Ed Categories:</strong>
+            <strong>Good for Almost All Gen Ed Categories!</strong>
             <br />
             <br />
             <strong>Type: Self-Paced (Pass / Fail)</strong>
@@ -157,7 +163,11 @@ function SophiaModal({
           through credly. Once you finish your Sophia course, you have to click
           &quot;Get Your Badge.&quot; In your credly account, you should see
           your badge appear. You can follow this{" "}
-          <a href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript">
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript"
+          >
             link
           </a>{" "}
           for steps on how to send your transcript to admissions@psu.edu. It

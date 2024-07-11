@@ -8,7 +8,6 @@ export default function TESUOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,11 +22,16 @@ export default function TESUOption() {
           src="https://study.com/images/company/partnersPage/tesu-logo-color.png"
           alt="TESU image"
           style={{ width: "25%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>Thomas Edison State University</Card.Title>
           <Card.Text>
-            <a href="https://www2.tesu.edu/listalltecep.php">
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://www2.tesu.edu/listalltecep.php"
+            >
               Thomas Edison State University (TESU)
             </a>{" "}
             offers a set of exams called the Thomas Edison Credit by Examination
@@ -137,7 +141,11 @@ function TESUModal({
           admissions that TESU indicated the alternative grade given is
           equivalent to &apos;C&apos; (2.0) or higher when submitting your
           transcript. You can view this{" "}
-          <a href="https://www.degreeforum.net/mybb/Thread-Technical-Writing-TECEP-My-Experience?pid=415185#pid415185">
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://www.degreeforum.net/mybb/Thread-Technical-Writing-TECEP-My-Experience?pid=415185#pid415185"
+          >
             link
           </a>{" "}
           for more information.{" "}

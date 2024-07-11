@@ -8,7 +8,6 @@ export default function DSSTOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,13 +22,20 @@ export default function DSSTOption() {
           src="https://getcollegecredit.com/wp-content/uploads/2022/08/logo-1.png"
           alt="DSST Image"
           style={{ width: "25%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>DSST Exams</Card.Title>
           <Card.Text>
             {" "}
-            <a href="https://getcollegecredit.com/">DSST Exams</a> offer a set
-            of exams that allow you to gain college credit for your
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://getcollegecredit.com/"
+            >
+              DSST Exams
+            </a>{" "}
+            offer a set of exams that allow you to gain college credit for your
             bachelor&apos;s degree, bypassing the need to take longer courses.
             These DSST tests have some more topics than CLEP exams, so they are
             worth looking into. <br />
@@ -105,7 +111,14 @@ function DSSTModal({
         <h2>Transfer</h2>
         <p>
           You can explore other course equivalencies{" "}
-          <a href="https://admissions.psu.edu/academics/credit/dsst/">here</a>.
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://admissions.psu.edu/academics/credit/dsst/"
+          >
+            here
+          </a>
+          .
         </p>
         <h2>Notes</h2>
         <p>

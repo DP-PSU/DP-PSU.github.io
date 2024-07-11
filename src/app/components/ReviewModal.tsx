@@ -49,7 +49,10 @@ export default function ReviewModal({
             <Col xs={12} sm={6} md={4}>
               <FormGroup controlId="formGroupRating" as={Col}>
                 <Form.Label>
-                  Overall Rating <span style={{ color: "red" }}>*</span>
+                  Overall Rating{" "}
+                  <span style={{ color: "red" }} className="mt-2 ms-2">
+                    *
+                  </span>
                 </Form.Label>
                 <Rating
                   name={`${option}-rating`}
@@ -74,6 +77,7 @@ export default function ReviewModal({
               as="textarea"
               name="review-data"
               placeholder="I thought this was really cool..."
+              maxLength={500}
             />
           </FormGroup>
           <Button

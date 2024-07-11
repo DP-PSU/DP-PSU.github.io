@@ -8,7 +8,6 @@ export default function CLEPOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,11 +22,16 @@ export default function CLEPOption() {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CLEP_logo_%282017%29.svg/1200px-CLEP_logo_%282017%29.svg.png"
           alt="CLEP image"
           style={{ width: "15%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>CLEP</Card.Title>
           <Card.Text>
-            <a href="https://clep.collegeboard.org/">
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://clep.collegeboard.org/"
+            >
               College-Level Examination Program (CLEP)
             </a>{" "}
             offers a set of exams that allow you to gain college credit for your
@@ -121,7 +125,14 @@ function CLEPModal({
         <h2>Transfer</h2>
         <p>
           You can explore other course equivalencies{" "}
-          <a href="https://admissions.psu.edu/academics/credit/clep/">here</a>.
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://admissions.psu.edu/academics/credit/clep/"
+          >
+            here
+          </a>
+          .
         </p>
         <h2>Notes</h2>
         <p>

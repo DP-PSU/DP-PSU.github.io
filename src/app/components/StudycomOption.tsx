@@ -8,7 +8,6 @@ export default function StudycomOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,14 +22,21 @@ export default function StudycomOption() {
           src="https://images.ctfassets.net/a7hvy8sclsq6/115KJfTy7cOqoxv52EvpeF/1f78746b783fa2e600eb4c8a806a9e35/Study-dot-com-logo.png"
           alt="Study.com Image"
           style={{ width: "25%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>Study.com</Card.Title>
           <Card.Text>
-            <a href="https://study.com/college/index.html">Study.com</a> offers
-            a service that allows students to earn college credit for completing
-            their courses. Study.com boasts the most courses, however most of
-            them are not listed in the Transfer Option tool. <br />
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://study.com/college/index.html"
+            >
+              Study.com
+            </a>{" "}
+            offers a service that allows students to earn college credit for
+            completing their courses. Study.com boasts the most courses, however
+            most of them are not listed in the Transfer Option tool. <br />
             <br />
             <strong>Good for ENGL 15 </strong>
             <br />
@@ -114,7 +120,11 @@ function StudycomModal({
           First, you must send your transcript through Credly. You can create an
           account through credly. In your credly account, you should see your
           badge appear once you accept your badge. You can follow this{" "}
-          <a href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript">
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript"
+          >
             link
           </a>{" "}
           for steps on how to send your transcript to admissions@psu.edu. It

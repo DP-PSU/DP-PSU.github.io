@@ -8,7 +8,6 @@ export default function CourseraOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -20,14 +19,19 @@ export default function CourseraOption() {
         <Card.Header>Transfer Option #6</Card.Header>
         <Card.Img
           variant="top"
-          src="https://imgs.search.brave.com/8nNisAp-P6_NDncU8UQKaaU5jCFzmHRmqQ0BBuj0x-A/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy85/Lzk3L0NvdXJzZXJh/LUxvZ29fNjAweDYw/MC5zdmc.svg"
+          src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg"
           alt="Coursera Image"
-          style={{ width: "10%" }}
+          style={{ width: "20%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>Coursera</Card.Title>
           <Card.Text>
-            <a href="https://degreeforum.miraheze.org/wiki/Coursera">
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://degreeforum.miraheze.org/wiki/Coursera"
+            >
               Coursera
             </a>{" "}
             offers a service that allows students to earn college credit for
@@ -120,7 +124,11 @@ function CourseraModal({
           First, you must send your transcript through Credly. You can create an
           account through credly. In your credly account, you should see your
           badge appear once you accept your badge. You can follow this{" "}
-          <a href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript">
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript"
+          >
             link
           </a>{" "}
           for steps on how to send your transcript to admissions@psu.edu. It

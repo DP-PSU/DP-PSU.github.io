@@ -8,7 +8,6 @@ export default function StraighterlineOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,11 +22,16 @@ export default function StraighterlineOption() {
           src="https://www.excelsior.edu/wp-content/uploads/2018/01/logo-straighterline.jpeg"
           alt="StraighterLine image"
           style={{ width: "25%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>StraighterLine</Card.Title>
           <Card.Text>
-            <a href="https://imgs.search.brave.com/cxkHu0ko46hNSsbu2z8yf9QApKGoR5tM7ESwIKP5yjU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/ZXhjZWxzaW9yLmVk/dS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OC8wMS9sb2dvLXN0/cmFpZ2h0ZXJsaW5l/LTMwMHg1NC5qcGVn">
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://www.straighterline.com/"
+            >
               StraighterLine
             </a>{" "}
             is a self-paced, open-book online education platform that offers a
@@ -118,7 +122,11 @@ function StraighterlineModal({
           First, you must send your transcript through Credly. You can create an
           account through credly. In your credly account, you should see your
           badge appear once you accept your badge. You can follow this{" "}
-          <a href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript">
+          <a
+            target="blank_"
+            rel="noreferrer noopener"
+            href="https://support.credly.com/hc/en-us/articles/360054195272-How-can-I-send-my-ACE-Transcript"
+          >
             link
           </a>{" "}
           for steps on how to send your transcript to admissions@psu.edu. It

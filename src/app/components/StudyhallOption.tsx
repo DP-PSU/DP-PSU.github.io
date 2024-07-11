@@ -8,7 +8,6 @@ export default function StudyhallOption() {
   const [reviewVisible, setReviewVisible] = useState(false);
 
   const handleClose = () => setVisible(false);
-  const handleVisible = () => setVisible(true);
   const handleReviewClose = () => setReviewVisible(false);
 
   const [ratingsVisible, setRatingsVisible] = useState(false);
@@ -23,14 +22,21 @@ export default function StudyhallOption() {
           src="https://gostudyhall.com/images/landingNavbar/SH-Character-AvatarQuote.svg"
           alt="Study Hall Image"
           style={{ width: "15%" }}
+          className="mt-2 ms-2"
         />
         <Card.Body>
           <Card.Title>Study Hall</Card.Title>
           <Card.Text>
-            <a href="https://gostudyhall.com/">Study Hall</a> is a partnership
-            between Crash Course, Youtube, and Arizona State University. The
-            program offers four courses with instructional support for college
-            credit. <br />
+            <a
+              target="blank_"
+              rel="noreferrer noopener"
+              href="https://gostudyhall.com/"
+            >
+              Study Hall
+            </a>{" "}
+            is a partnership between Crash Course, Youtube, and Arizona State
+            University. The program offers four courses with instructional
+            support for college credit. <br />
             <br />
             <strong>Good for CAS 101N, HIST 11, CMPSC 121</strong>
             <br />

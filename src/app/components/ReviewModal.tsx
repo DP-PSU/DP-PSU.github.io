@@ -33,6 +33,7 @@ export default function ReviewModal({
   darkMode: boolean;
 }>) {
   const [noRatingVisible, setNoRatingVisible] = useState(false);
+  const [badReviewVisible, setBadReviewVisible] = useState(false);
 
   useEffect(() => {
     const modalContent = document.querySelector(
@@ -51,7 +52,13 @@ export default function ReviewModal({
       <Modal.Body>
         <Form
           onSubmit={(event) =>
-            onReviewSubmit(event, option, setVisible, setNoRatingVisible)
+            onReviewSubmit(
+              event,
+              option,
+              setVisible,
+              setNoRatingVisible,
+              setBadReviewVisible
+            )
           }
           id="review-form"
         >
@@ -106,6 +113,18 @@ export default function ReviewModal({
           </MaterialUIButton>
         </DialogActions>
       </Dialog>
+      <Dialog open={badReviewVisible}>
+        <DialogTitle>Review Flag</DialogTitle>
+        <DialogContent>
+          The text of your review was flagged as having toxicity, spam, or
+          profanity. Please resubmit your review.
+        </DialogContent>
+        <DialogActions>
+          <MaterialUIButton onClick={() => setBadReviewVisible(false)}>
+            Close
+          </MaterialUIButton>
+        </DialogActions>
+      </Dialog>
     </Modal>
   );
 }
@@ -114,7 +133,8 @@ const onReviewSubmit = async (
   event: React.FormEvent<HTMLFormElement>,
   option: string,
   setModalVisible: (visible: boolean) => void,
-  setNoRatingVisible: React.Dispatch<React.SetStateAction<boolean>>
+  setNoRatingVisible: React.Dispatch<React.SetStateAction<boolean>>,
+  setBadReviewVisible: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   event.preventDefault();
 
@@ -136,6 +156,20 @@ const onReviewSubmit = async (
   const name = formData.get("name") as string;
   const review = formData.get("review-data") as string;
 
+  const reviewCheck = await fetch("/api/reviews/check", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ option, name, rating, review }),
+  });
+
+  if (reviewCheck.status != 200) {
+    document.getElementById("review-submit")!.innerText = "Submit Rating";
+    document.getElementById("review-submit")!.removeAttribute("disabled");
+    return setBadReviewVisible(true);
+  }
+
   const reviewReq = await fetch("/api/reviews/submit", {
     method: "POST",
     headers: {
@@ -153,16 +187,6 @@ const onReviewSubmit = async (
     await new Promise((r) => setTimeout(r, 1000));
 
     setModalVisible(false);
-  } else if (reviewReq.status == 400) {
-    reviewButton.classList.remove("btn-success");
-    reviewButton.classList.add("btn-danger");
-    reviewButton.innerText = "Review contains spam, profanity, or toxicity.";
-
-    await new Promise((r) => setTimeout(r, 2000));
-
-    reviewButton.innerText = "Submit Rating";
-    reviewButton.classList.remove("btn-danger");
-    reviewButton.classList.add("btn-success");
   } else {
     reviewButton.classList.remove("btn-success");
     reviewButton.classList.add("btn-danger");

@@ -7,8 +7,12 @@ import { useState } from "react";
 
 export default function Home() {
   const [darkState, setDarkState] = useState(() => {
-    const savedDarkMode = localStorage.getItem("darkMode");
-    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+    if (typeof window !== "undefined") {
+      const savedDarkMode = localStorage.getItem("darkMode");
+      return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+    }
+
+    return false;
   });
 
   return (

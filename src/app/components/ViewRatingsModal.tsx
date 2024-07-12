@@ -37,7 +37,7 @@ export default function ViewRatingsModal({
 
   useEffect(() => {
     const fetchRatings = async () => {
-      const response = await fetch("api/reviews/getreviews", {
+      const response = await fetch("api/reviews/get", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

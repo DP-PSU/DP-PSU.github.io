@@ -25,3 +25,15 @@ export default function TransferOptions() {
     </Container>
   );
 }
+
+export const optionToTitle = {
+  sophia: "Sophia Learning",
+  tesu: "Thomas Edison State University",
+  straighterline: "Straighterline",
+  westcott: "WestCott Courses",
+  clep: "College Level Examination Program",
+  dsst: "DSST Exams",
+  coursera: "Coursera",
+  studycom: "Study.com",
+  studyhall: "Study Hall",
+};

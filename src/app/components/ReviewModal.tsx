@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Button, Col, Form, FormGroup, Modal, Row } from "react-bootstrap";
+import { optionToTitle } from "./TransferOptions";
 
 export default function ReviewModal({
   option,
@@ -34,9 +35,7 @@ export default function ReviewModal({
   return (
     <Modal show={visible} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>
-          Review {option[0].toUpperCase() + option.slice(1)}
-        </Modal.Title>
+        <Modal.Title>Review {optionToTitle[option]}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form
@@ -49,8 +48,8 @@ export default function ReviewModal({
             <Col xs={12} sm={6} md={4}>
               <FormGroup controlId="formGroupRating" as={Col}>
                 <Form.Label>
-                  Overall Rating{" "}
-                  <span style={{ color: "red" }} className="mt-2 ms-2">
+                  Overall Rating
+                  <span style={{ color: "red" }} className="mt-2 ms-1">
                     *
                   </span>
                 </Form.Label>
@@ -64,12 +63,7 @@ export default function ReviewModal({
           </Row>
           <FormGroup controlId="formGroupName" as={Col}>
             <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              placeholder="Name"
-              className="mb-3"
-            />
+            <Form.Control type="text" name="name" className="mb-3" />
           </FormGroup>
           <FormGroup controlId="formGroupReview">
             <Form.Label className="mt-2">Your Review</Form.Label>

@@ -66,7 +66,7 @@ export default function SophiaOption() {
             variant="outline-success"
             onClick={() => setReviewVisible(true)}
           >
-            Rate or Review this option
+            Rate or review this option
           </Button>
         </Card.Body>
       </Card>

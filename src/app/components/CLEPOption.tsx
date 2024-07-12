@@ -69,7 +69,7 @@ export default function CLEPOption() {
             variant="outline-success"
             onClick={() => setReviewVisible(true)}
           >
-            Rate or Review this option
+            Rate or review this option
           </Button>
         </Card.Body>
       </Card>

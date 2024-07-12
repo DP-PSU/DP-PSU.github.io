@@ -14,6 +14,7 @@ export default function ViewRatingsModal({
   visible,
   handleClose,
   setVisible,
+  darkMode,
 }: Readonly<{
   option:
     | "sophia"
@@ -28,6 +29,7 @@ export default function ViewRatingsModal({
   visible: boolean;
   handleClose: () => void;
   setVisible: (visible: boolean) => void;
+  darkMode: boolean;
 }>) {
   const [ratings, setRatings] = useState<JSX.Element[]>([
     <p key={0}>Loading...</p>,
@@ -69,7 +71,12 @@ export default function ViewRatingsModal({
         (r as Array<any>).length
           ? (r as Array<any>).map((rating, index) => (
               <Fragment key={index + 1}>
-                <Card variant="outlined" className="mb-2 bg-review">
+                <Card
+                  variant="outlined"
+                  className={`mb-2 ${
+                    darkMode ? "bg-review-dark" : "bg-review-light"
+                  }`}
+                >
                   <CardContent className="position-relative">
                     <Rating
                       disabled={true}
@@ -92,7 +99,16 @@ export default function ViewRatingsModal({
       setRatings(rText);
     };
     fetchRatings();
-  }, [option, visible]);
+  }, [option, visible, darkMode]);
+
+  useEffect(() => {
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLDivElement | null;
+    if (darkMode && modalContent) {
+      modalContent.style.backgroundColor = " #d3d3d3";
+    }
+  }, [darkMode, visible]);
 
   return (
     <Modal show={visible} onHide={handleClose} size="lg">

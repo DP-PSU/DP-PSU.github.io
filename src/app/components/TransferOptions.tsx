@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, Container, Modal } from "react-bootstrap";
 import SophiaOption from "./SophiaOption";
 import TESUOption from "./TESUOption";
@@ -10,18 +10,18 @@ import CourseraOption from "./CourseraOption";
 import StudycomOption from "./StudycomOption";
 import StudyhallOption from "./StudyhallOption";
 
-export default function TransferOptions() {
+export default function TransferOptions({ dark }: { dark: boolean }) {
   return (
     <Container>
-      <SophiaOption />
-      <TESUOption />
-      <StraighterlineOption />
-      <WestcottOption />
-      <CLEPOption />
-      <DSSTOption />
-      <CourseraOption />
-      <StudycomOption />
-      <StudyhallOption />
+      <SophiaOption darkMode={dark} />
+      <TESUOption darkMode={dark} />
+      <StraighterlineOption darkMode={dark} />
+      <WestcottOption darkMode={dark} />
+      <CLEPOption darkMode={dark} />
+      <DSSTOption darkMode={dark} />
+      <CourseraOption darkMode={dark} />
+      <StudycomOption darkMode={dark} />
+      <StudyhallOption darkMode={dark} />
     </Container>
   );
 }

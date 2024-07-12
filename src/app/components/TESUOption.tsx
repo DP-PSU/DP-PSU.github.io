@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function TESUOption() {
+export default function TESUOption({ darkMode }: { darkMode: boolean }) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -13,9 +13,18 @@ export default function TESUOption() {
   const [ratingsVisible, setRatingsVisible] = useState(false);
   const handleRatingsClose = () => setRatingsVisible(false);
 
+  useEffect(() => {
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLDivElement | null;
+    if (darkMode && modalContent) {
+      modalContent.style.backgroundColor = " #d3d3d3";
+    }
+  }, [darkMode, visible]);
+
   return (
     <>
-      <Card className="mb-4">
+      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
         <Card.Header>Transfer Option #2</Card.Header>
         <Card.Img
           variant="top"
@@ -80,12 +89,14 @@ export default function TESUOption() {
         visible={ratingsVisible}
         handleClose={handleRatingsClose}
         setVisible={setRatingsVisible}
+        darkMode={darkMode}
       />
       <ReviewModal
         option="tesu"
         visible={reviewVisible}
         handleClose={handleReviewClose}
         setVisible={setReviewVisible}
+        darkMode={darkMode}
       />
     </>
   );

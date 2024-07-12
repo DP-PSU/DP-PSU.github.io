@@ -1,20 +1,37 @@
 import {
+  Button,
   Container,
   Nav,
   Navbar,
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
+import DarkModeButton from "./DarkModeButton";
+import { Dispatch, SetStateAction } from "react";
 
-export default function NavigationBar() {
+export default function NavigationBar({
+  dark,
+  setDark,
+}: {
+  dark: boolean;
+  setDark: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
-    <Navbar expand={false} className="bg-body-tertiary mb-3">
+    <Navbar
+      expand={false}
+      data-bs-theme={`${dark ? "dark" : ""}`}
+      className={`bg-body-tertiary mb-3`}
+    >
       <Container fluid>
         <Navbar.Brand href="/" className="ms-2">
           Cheap PSU Transfer Credit
         </Navbar.Brand>
+        <DarkModeButton dark={dark} setDark={setDark} />
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
-        <Navbar.Offcanvas className="bg-body-tertiary" placement="end">
+        <Navbar.Offcanvas
+          className={`${dark ? "bg-dark text-light" : " bg-body-tertiary"}`}
+          placement="end"
+        >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel-expand">
               Helpful Links

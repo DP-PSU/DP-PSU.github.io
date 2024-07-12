@@ -5,8 +5,13 @@
 .modal-wide {
   width: 90%;
 }
-.bg-review {
+
+.bg-review-light {
   background-color: aliceblue !important;
+}
+
+.bg-review-dark {
+  background-color: darkgrey !important;
 }
 
 .bg-review:hover {

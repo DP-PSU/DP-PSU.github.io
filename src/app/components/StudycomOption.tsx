@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function StudycomOption() {
+export default function StudycomOption({ darkMode }: { darkMode: boolean }) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -13,9 +13,18 @@ export default function StudycomOption() {
   const [ratingsVisible, setRatingsVisible] = useState(false);
   const handleRatingsClose = () => setRatingsVisible(false);
 
+  useEffect(() => {
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLDivElement | null;
+    if (darkMode && modalContent) {
+      modalContent.style.backgroundColor = " #d3d3d3";
+    }
+  }, [darkMode, visible]);
+
   return (
     <>
-      <Card className="mb-4">
+      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
         <Card.Header>Transfer Option #7</Card.Header>
         <Card.Img
           variant="top"
@@ -71,12 +80,14 @@ export default function StudycomOption() {
         visible={ratingsVisible}
         handleClose={handleRatingsClose}
         setVisible={setRatingsVisible}
+        darkMode={darkMode}
       />
       <ReviewModal
         option="studycom"
         visible={reviewVisible}
         handleClose={handleReviewClose}
         setVisible={setReviewVisible}
+        darkMode={darkMode}
       />
     </>
   );

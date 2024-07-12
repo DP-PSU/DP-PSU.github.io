@@ -6,7 +6,7 @@ import {
   Button as MaterialUIButton,
   DialogActions,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Col, Form, FormGroup, Modal, Row } from "react-bootstrap";
 import { optionToTitle } from "./TransferOptions";
 
@@ -15,6 +15,7 @@ export default function ReviewModal({
   visible,
   handleClose,
   setVisible,
+  darkMode,
 }: Readonly<{
   option:
     | "sophia"
@@ -29,8 +30,18 @@ export default function ReviewModal({
   visible: boolean;
   handleClose: () => void;
   setVisible: (visible: boolean) => void;
+  darkMode: boolean;
 }>) {
   const [noRatingVisible, setNoRatingVisible] = useState(false);
+
+  useEffect(() => {
+    const modalContent = document.querySelector(
+      ".modal-content"
+    ) as HTMLDivElement | null;
+    if (darkMode && modalContent) {
+      modalContent.style.backgroundColor = " #d3d3d3";
+    }
+  }, [darkMode, visible]);
 
   return (
     <Modal show={visible} onHide={handleClose}>

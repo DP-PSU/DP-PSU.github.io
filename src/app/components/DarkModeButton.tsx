@@ -14,9 +14,11 @@ export default function DarkModeButton({
     if (isDark) {
       setDark(true);
       setButtonText("Light");
+      localStorage.setItem("darkMode", JSON.stringify(true));
     } else {
       setDark(false);
       setButtonText("Dark");
+      localStorage.setItem("darkMode", JSON.stringify(false));
     }
   };
 

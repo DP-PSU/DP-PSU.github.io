@@ -6,7 +6,10 @@ import NavigationBar from "./components/NavigationBar";
 import { useState } from "react";
 
 export default function Home() {
-  const [darkState, setDarkState] = useState(false);
+  const [darkState, setDarkState] = useState(() => {
+    const savedDarkMode = localStorage.getItem("darkMode");
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+  });
 
   return (
     <>

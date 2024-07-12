@@ -24,7 +24,7 @@ export default function StudyhallOption({ darkMode }: { darkMode: boolean }) {
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card className={`pb-1 ${darkMode ? "bg-dark text-light" : ""}`}>
         <Card.Header>Transfer Option #8</Card.Header>
         <Card.Img
           variant="top"

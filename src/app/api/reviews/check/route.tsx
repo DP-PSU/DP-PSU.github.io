@@ -7,7 +7,6 @@ export async function POST(req: Request) {
 
   const { _option, _name, _rating, review } = await req.json();
 
-  // TODO process review
   const perspectiveReq = await fetch(
     `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${process.env.PERSPECTIVE_API_KEY}`,
     {
@@ -36,7 +35,7 @@ export async function POST(req: Request) {
       statusText: "Toxicity threshold exceeeded",
     });
   // check spam
-  if (scores[1][1] > 0.5)
+  if (scores[1][1] > 0.95)
     return new NextResponse(null, {
       status: 400,
       statusText: "Spam threshold exceeeded",

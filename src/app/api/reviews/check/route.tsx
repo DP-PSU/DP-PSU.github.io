@@ -30,25 +30,46 @@ export async function POST(req: Request) {
 
   // check toxicity
   if (scores[0][1] > 0.7)
-    return new NextResponse(null, {
-      status: 400,
-      statusText: "Toxicity threshold exceeeded",
-    });
+    return new NextResponse(
+      JSON.stringify({
+        status: 400,
+        message: "Review toxicity threshold exceeded",
+      }),
+      {
+        status: 400,
+        statusText: "Toxicity threshold exceeeded",
+      }
+    );
   // check spam
   if (scores[1][1] > 0.95)
-    return new NextResponse(null, {
-      status: 400,
-      statusText: "Spam threshold exceeeded",
-    });
+    return new NextResponse(
+      JSON.stringify({
+        status: 400,
+        message: "Review spam threshold exceeded",
+      }),
+      {
+        status: 400,
+        statusText: "Spam threshold exceeeded",
+      }
+    );
   // check profanity
   if (scores[2][1] > 0.7)
-    return new NextResponse(null, {
-      status: 400,
-      statusText: "Profanity threshold exceeeded",
-    });
+    return new NextResponse(
+      JSON.stringify({
+        status: 400,
+        message: "Review profanity threshold exceeded",
+      }),
+      {
+        status: 400,
+        statusText: "Profanity threshold exceeeded",
+      }
+    );
 
-  return new NextResponse(null, {
-    status: 200,
-    statusText: "OK to submit review.",
-  });
+  return new NextResponse(
+    JSON.stringify({ status: 200, message: "OK to submit review" }),
+    {
+      status: 200,
+      statusText: "OK to submit review.",
+    }
+  );
 }

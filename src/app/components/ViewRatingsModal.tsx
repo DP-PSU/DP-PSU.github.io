@@ -45,6 +45,12 @@ export default function ViewRatingsModal({
         body: JSON.stringify({ option }),
       });
 
+      if (response.status != 200) {
+        return setRatings([
+          <p key={0}>An internal error occured when fetching reviews</p>,
+        ]);
+      }
+
       const r = await response.json();
 
       var averageRating =

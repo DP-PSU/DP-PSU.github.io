@@ -8,7 +8,7 @@ export default function DarkModeButton({
   dark: boolean;
   setDark: Dispatch<SetStateAction<boolean>>;
 }) {
-  const [buttonText, setButtonText] = useState("Dark");
+  const [buttonText, setButtonText] = useState("Light");
 
   const changeMode = (isDark: boolean) => {
     if (isDark) {

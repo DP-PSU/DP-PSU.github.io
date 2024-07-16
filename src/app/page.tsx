@@ -12,7 +12,7 @@ export default function Home() {
       return savedDarkMode ? JSON.parse(savedDarkMode) : false;
     }
 
-    return false;
+    return true;
   });
 
   return (

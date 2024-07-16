@@ -120,7 +120,7 @@ function SophiaModal({
           students, this most likely will occur during your winter or summer
           break.{" "}
         </p>
-        <h2>Genral Education Courses</h2>
+        <h2>General Education Courses</h2>
         <p>
           <strong>Quantification (GQ):</strong> MATH 140, STAT 100
         </p>

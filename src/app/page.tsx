@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import TransferOptions from "./components/TransferOptions";
 import NavigationBar from "./components/NavigationBar";
 import { useState } from "react";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [darkState, setDarkState] = useState(() => {
@@ -25,6 +26,7 @@ export default function Home() {
           </h1> */}
         </div>
         <TransferOptions dark={darkState} />
+        <Footer dark={darkState} />
       </Container>
     </>
   );

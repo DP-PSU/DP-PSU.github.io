@@ -10,7 +10,7 @@ import CourseraOption from "./CourseraOption";
 import StudycomOption from "./StudycomOption";
 import StudyhallOption from "./StudyhallOption";
 
-export default function TransferOptions({ dark }: { dark: boolean }) {
+export default function TransferOptions({ dark }: Readonly<{ dark: boolean }>) {
   return (
     <Container>
       <SophiaOption darkMode={dark} />

@@ -47,7 +47,7 @@ export default function StudyhallOption({ darkMode }: { darkMode: boolean }) {
             University. The program offers four courses with instructional
             support for college credit. <br />
             <br />
-            <strong>Good for CAS 101N, HIST 11, CMPSC 121</strong>
+            <strong>Good for CAS 101N, HIST 11, CMPSC 121, ENGL 15</strong>
             <br />
             <br />
             <strong>Good for General Education (Interdomain)</strong>

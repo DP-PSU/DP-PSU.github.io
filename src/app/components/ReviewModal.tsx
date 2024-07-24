@@ -113,11 +113,21 @@ export default function ReviewModal({
           </MaterialUIButton>
         </DialogActions>
       </Dialog>
-      <Dialog open={badReviewVisible}>
-        <DialogTitle>Review Flag</DialogTitle>
+      <Dialog
+        open={badReviewVisible}
+        sx={{
+          "& .MuiPaper-root": {
+            backgroundColor: "#f54545",
+          },
+        }}
+      >
+        <DialogTitle>Review Flagged</DialogTitle>
         <DialogContent>
-          The text of your review was flagged as having toxicity, spam, or
-          profanity. Please resubmit your review.
+          Your review was flagged as having toxicity, spam, or profanity. Please
+          resubmit your review.
+          <br />
+          If you believe this is an error, please contact the person who
+          referred you to this website.
         </DialogContent>
         <DialogActions>
           <MaterialUIButton onClick={() => setBadReviewVisible(false)}>

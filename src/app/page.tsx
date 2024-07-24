@@ -18,6 +18,12 @@ export default function Home() {
 
   return (
     <>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="UUIli9cXiXHBFQ_zTriLBKofn4dkwE9McYgVaWX2_Cg"
+        />
+      </head>
       <Container fluid className={`p-0 ${darkState ? "bg-secondary" : ""}`}>
         <NavigationBar dark={darkState} setDark={setDarkState} />
         <div>

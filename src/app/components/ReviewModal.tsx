@@ -174,7 +174,7 @@ const onReviewSubmit = async (
     body: JSON.stringify({ option, name, rating, review }),
   });
 
-  if (reviewCheck.status != 200) {
+  if (reviewCheck.status == 400) {
     document.getElementById("review-submit")!.innerText = "Submit Rating";
     document.getElementById("review-submit")!.removeAttribute("disabled");
     return setBadReviewVisible(true);

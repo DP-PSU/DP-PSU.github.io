@@ -3,7 +3,7 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function StudycomOption({ darkMode }: { darkMode: boolean }) {
+export default function StudycomOption({ darkMode }: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -96,10 +96,10 @@ export default function StudycomOption({ darkMode }: { darkMode: boolean }) {
 function StudycomModal({
   visible,
   handleClose,
-}: {
+}: Readonly<{
   visible: boolean;
   handleClose: () => void;
-}) {
+}>) {
   return (
     <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>

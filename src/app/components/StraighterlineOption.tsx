@@ -5,9 +5,9 @@ import ViewRatingsModal from "./ViewRatingsModal";
 
 export default function StraighterlineOption({
   darkMode,
-}: {
+}: Readonly<{
   darkMode: boolean;
-}) {
+}>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -102,10 +102,10 @@ export default function StraighterlineOption({
 function StraighterlineModal({
   visible,
   handleClose,
-}: {
+}: Readonly<{
   visible: boolean;
   handleClose: () => void;
-}) {
+}>) {
   return (
     <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>

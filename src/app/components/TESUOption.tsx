@@ -3,7 +3,7 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function TESUOption({ darkMode }: { darkMode: boolean }) {
+export default function TESUOption({ darkMode }: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -105,10 +105,10 @@ export default function TESUOption({ darkMode }: { darkMode: boolean }) {
 function TESUModal({
   visible,
   handleClose,
-}: {
+}: Readonly<{
   visible: boolean;
   handleClose: () => void;
-}) {
+}>) {
   return (
     <Modal show={visible} onHide={handleClose} size="lg">
       <Modal.Header closeButton>

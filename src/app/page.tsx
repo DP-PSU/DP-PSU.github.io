@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   const [darkState, setDarkState] = useState(true);
-  const [rememberedMode, setRememberedMode] = useState(true);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -18,12 +17,10 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <Container fluid className={`p-0 ${darkState ? "bg-secondary" : ""}`}>
-        <NavigationBar dark={darkState} setDark={setDarkState} />
-        <TransferOptions dark={darkState} />
-        <Footer dark={darkState} />
-      </Container>
-    </>
+    <Container fluid className={`p-0 ${darkState ? "bg-secondary" : ""}`}>
+      <NavigationBar dark={darkState} setDark={setDarkState} />
+      <TransferOptions dark={darkState} />
+      <Footer dark={darkState} />
+    </Container>
   );
 }

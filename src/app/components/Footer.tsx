@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Typography, Link } from "@mui/material";
 
-export default function Footer({ dark }: { dark: boolean }) {
+export default function Footer({ dark }: Readonly<{ dark: boolean }>) {
   return (
     <footer
       style={{

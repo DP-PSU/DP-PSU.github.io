@@ -3,7 +3,9 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function DSSTOption({ darkMode }: { darkMode: boolean }) {
+export default function DSSTOption({
+  darkMode,
+}: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 

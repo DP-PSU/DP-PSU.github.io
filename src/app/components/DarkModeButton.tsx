@@ -1,5 +1,5 @@
-import { Dispatch, SetStateAction, useState } from "react";
-import { Button } from "react-bootstrap";
+import { FormControlLabel, Switch } from "@mui/material";
+import { type Dispatch, type SetStateAction } from "react";
 
 export default function DarkModeButton({
   dark,
@@ -8,32 +8,20 @@ export default function DarkModeButton({
   dark: boolean;
   setDark: Dispatch<SetStateAction<boolean>>;
 }) {
-  const [buttonText, setButtonText] = useState("Light");
-
-  const changeMode = (isDark: boolean) => {
-    if (isDark) {
-      setDark(true);
-      setButtonText("Light");
-      if (typeof window !== "undefined")
-        localStorage.setItem("darkMode", JSON.stringify(true));
-    } else {
-      setDark(false);
-      setButtonText("Dark");
-      if (typeof window !== "undefined")
-        localStorage.setItem("darkMode", JSON.stringify(false));
-    }
-  };
-
   return (
-    <Button
-      id="button_darkmode"
-      variant={`${dark ? "outline-light" : "outline-dark"}`}
+    <FormControlLabel
+      value="Dark Mode button"
       className="ms-auto me-2"
-      onClick={() => {
-        changeMode(!dark);
-      }}
-    >
-      {buttonText}
-    </Button>
+      control={
+        <Switch
+          color="primary"
+          checked={dark}
+          onChange={(e) => setDark(e.target.checked)}
+        />
+      }
+      label={dark ? "Dark" : "Light"}
+      sx={{ color: dark ? "white" : "black" }}
+      labelPlacement="start"
+    />
   );
 }

@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   Nav,
   Navbar,
@@ -7,7 +6,7 @@ import {
   Offcanvas,
 } from "react-bootstrap";
 import DarkModeButton from "./DarkModeButton";
-import { Dispatch, SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 
 export default function NavigationBar({
   dark,

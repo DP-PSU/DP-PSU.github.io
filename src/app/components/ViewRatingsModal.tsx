@@ -99,7 +99,7 @@ export default function ViewRatingsModal({
                 </Card>
               </Fragment>
             ))
-          : [<p key={0}>No reviews yet :(</p>]
+          : [<p key={1}>No reviews yet :(</p>]
       );
 
       setRatings(rText);

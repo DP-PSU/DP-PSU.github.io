@@ -127,7 +127,7 @@ export default function ReviewModal({
           resubmit your review.
           <br />
           If you believe this is an error, please contact the person who
-          referred you to this website.
+          referred you to this website with the text of your review.
         </DialogContent>
         <DialogActions>
           <MaterialUIButton onClick={() => setBadReviewVisible(false)}>

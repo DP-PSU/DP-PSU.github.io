@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
-const allowedOrigins = ["https://dp-psu.vercel.app", "http://localhost:3000"];
+import allowedOrigins from "../submit/route";
 
 export async function POST(req: Request) {
   if (!allowedOrigins.includes(req.headers.get("origin")!))

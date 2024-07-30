@@ -5,16 +5,16 @@ import {
   NavDropdown,
   Offcanvas,
 } from "react-bootstrap";
-import DarkModeButton from "./DarkModeButton";
+import DarkModeSwitch from "./DarkModeSwitch";
 import { type Dispatch, type SetStateAction } from "react";
 
 export default function NavigationBar({
   dark,
   setDark,
-}: {
+}: Readonly<{
   dark: boolean;
   setDark: Dispatch<SetStateAction<boolean>>;
-}) {
+}>) {
   return (
     <Navbar
       expand={false}
@@ -25,7 +25,7 @@ export default function NavigationBar({
         <Navbar.Brand href="/" className="ms-2">
           Cheap PSU Transfer Credit
         </Navbar.Brand>
-        <DarkModeButton dark={dark} setDark={setDark} />
+        <DarkModeSwitch dark={dark} setDark={setDark} />
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
         <Navbar.Offcanvas
           className={`${dark ? "bg-dark text-light" : " bg-body-tertiary"}`}

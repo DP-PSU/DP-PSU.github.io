@@ -5,9 +5,13 @@ import TransferOptions from "./components/TransferOptions";
 import NavigationBar from "./components/NavigationBar";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
+import { useSearchParams } from "next/navigation";
+import { Toast, ToastContainer } from "react-bootstrap";
 
 export default function Home() {
   const [darkState, setDarkState] = useState(true);
+  const params = useSearchParams();
+  const [showNewWebsiteToast, setShowNewWebsiteToast] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -16,11 +20,44 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    if (
+      params.get("src") == "old_url" &&
+      !localStorage.getItem("newWebsiteDialogShown")
+    ) {
+      showNewWebsiteDialog();
+    }
+  }, [params]);
+
+  const showNewWebsiteDialog = () => {
+    setShowNewWebsiteToast(true);
+    localStorage.setItem("newWebsiteDialogShown", JSON.stringify(true));
+  };
+
   return (
     <Container fluid className={`p-0 ${darkState ? "bg-secondary" : ""}`}>
       <NavigationBar dark={darkState} setDark={setDarkState} />
       <TransferOptions dark={darkState} />
       <Footer dark={darkState} />
+      <ToastContainer position="top-end">
+        <Toast
+          className="mt-5"
+          show={showNewWebsiteToast}
+          onClose={() => setShowNewWebsiteToast(false)}
+          bg="info"
+          autohide
+          delay={7500}
+        >
+          <Toast.Header>
+            <strong className="me-auto">Welcome to the new website!</strong>
+            <small>now</small>
+          </Toast.Header>
+          <Toast.Body>
+            You can now view and post reviews based on your experience with the
+            various options!
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </Container>
   );
 }

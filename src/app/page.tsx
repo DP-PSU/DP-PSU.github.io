@@ -45,6 +45,20 @@ export default function Home() {
 
   return (
     <>
+      <noscript>
+        <ToastContainer position="top-center">
+          <Toast className="mt-2" bg="danger">
+            <Toast.Header>
+              <strong className="me-auto">JavaScript is disabled!</strong>
+              <small>now</small>
+            </Toast.Header>
+            <Toast.Body>
+              Please enable Javascript to use the full functionality of this
+              website. Some features may not work as expected.
+            </Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </noscript>
       <Container fluid className={`p-0 ${darkState ? "bg-secondary" : ""}`}>
         <NavigationBar dark={darkState} setDark={setDarkState} />
         <TransferOptions dark={darkState} />

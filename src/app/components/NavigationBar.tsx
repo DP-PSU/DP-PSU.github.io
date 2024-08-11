@@ -31,7 +31,7 @@ export default function NavigationBar({
           className={`${dark ? "bg-dark text-light" : " bg-body-tertiary"}`}
           placement="end"
         >
-          <Offcanvas.Header closeButton>
+          <Offcanvas.Header closeButton closeVariant="white">
             <Offcanvas.Title id="offcanvasNavbarLabel-expand">
               Helpful Links
             </Offcanvas.Title>

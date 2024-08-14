@@ -21,3 +21,7 @@
 .bg-review-dark:hover {
   transform: scale(1.03);
 }
+
+.studycom-card-dark {
+  background-color: #3d3d3d;
+}

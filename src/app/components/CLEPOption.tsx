@@ -24,7 +24,7 @@ export default function CLEPOption({ darkMode }: Readonly<{ darkMode: boolean }>
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card id="clep" className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
         <Card.Header>Transfer Option #4</Card.Header>
         <Card.Img
           variant="top"

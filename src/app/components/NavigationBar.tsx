@@ -25,11 +25,28 @@ export default function NavigationBar({
         <Navbar.Brand href="/" className="ms-2">
           Cheap PSU Transfer Credit
         </Navbar.Brand>
+        <NavDropdown title="Jump To" className="text-muted">
+          <NavDropdown.Item href="#sophia">Sophia Learning</NavDropdown.Item>
+          <NavDropdown.Item href="#tesu">
+            Thomas Edison St University
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#straighterline">
+            Straighterline
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#westcott">WestCott</NavDropdown.Item>
+          <NavDropdown.Item href="#clep">
+            College Level Examination Program
+          </NavDropdown.Item>
+          <NavDropdown.Item href="#dsst">DSST Exams</NavDropdown.Item>
+          <NavDropdown.Item href="#coursera">Coursera</NavDropdown.Item>
+          <NavDropdown.Item href="#studycom">Study.com</NavDropdown.Item>
+          <NavDropdown.Item href="#studyhall">Study Hall</NavDropdown.Item>
+        </NavDropdown>
         <DarkModeSwitch dark={dark} setDark={setDark} />
         <Navbar.Toggle aria-controls="offcanvasNavbar-expand" />
         <Navbar.Offcanvas
-          className={`${dark ? "bg-dark text-light" : " bg-body-tertiary"}`}
           placement="end"
+          data-bs-theme={`${dark ? "dark" : ""}`}
         >
           <Offcanvas.Header closeButton closeVariant="white">
             <Offcanvas.Title id="offcanvasNavbarLabel-expand">

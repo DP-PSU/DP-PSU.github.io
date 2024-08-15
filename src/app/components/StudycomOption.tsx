@@ -27,6 +27,7 @@ export default function StudycomOption({
   return (
     <>
       <Card
+        id="studycom"
         className={`mb-4 ${darkMode ? "studycom-card-dark text-light" : ""}`}
       >
         <Card.Header>Transfer Option #7</Card.Header>

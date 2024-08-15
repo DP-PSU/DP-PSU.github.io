@@ -24,7 +24,10 @@ export default function WestcottOption({ darkMode }: { darkMode: boolean }) {
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="westcott"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #4</Card.Header>
         <Card.Img
           variant="top"

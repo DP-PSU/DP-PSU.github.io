@@ -26,7 +26,10 @@ export default function DSSTOption({
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="dsst"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #5</Card.Header>
         <Card.Img
           variant="top"

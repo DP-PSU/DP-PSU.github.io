@@ -24,7 +24,10 @@ export default function SophiaOption({ darkMode }: { darkMode: boolean }) {
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="sophia"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #1</Card.Header>{" "}
         <Card.Img
           variant="top"

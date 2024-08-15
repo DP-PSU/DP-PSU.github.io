@@ -24,7 +24,7 @@ export default function CourseraOption({ darkMode }: Readonly<{ darkMode: boolea
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card id="coursera" className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
         <Card.Header>Transfer Option #6</Card.Header>
         <Card.Img
           variant="top"

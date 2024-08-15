@@ -28,7 +28,10 @@ export default function StraighterlineOption({
 
   return (
     <>
-      <Card className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="straighterline"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #3</Card.Header>
         <Card.Img
           variant="top"

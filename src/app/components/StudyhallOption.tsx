@@ -3,7 +3,9 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function StudyhallOption({ darkMode }: Readonly<{ darkMode: boolean }>) {
+export default function StudyhallOption({
+  darkMode,
+}: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -24,7 +26,10 @@ export default function StudyhallOption({ darkMode }: Readonly<{ darkMode: boole
 
   return (
     <>
-      <Card className={`pb-1 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="studyhall"
+        className={`pb-1 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #8</Card.Header>
         <Card.Img
           variant="top"

@@ -34,18 +34,25 @@ export default function ReviewModal({
 }>) {
   const [noRatingVisible, setNoRatingVisible] = useState(false);
   const [badReviewVisible, setBadReviewVisible] = useState(false);
+  const [reviewCharCount, setReviewCharCount] = useState(0);
 
   useEffect(() => {
     const modalContent = document.querySelector(
       ".modal-content"
     ) as HTMLDivElement | null;
     if (darkMode && modalContent) {
-      modalContent.style.backgroundColor = " #d3d3d3";
+      modalContent.style.backgroundColor = "#d3d3d3";
     }
   }, [darkMode, visible]);
 
   return (
-    <Modal show={visible} onHide={handleClose}>
+    <Modal
+      show={visible}
+      onHide={() => {
+        handleClose();
+        setReviewCharCount(0);
+      }}
+    >
       <Modal.Header closeButton>
         <Modal.Title>Review {optionToTitle[option]}</Modal.Title>
       </Modal.Header>
@@ -81,16 +88,31 @@ export default function ReviewModal({
           </Row>
           <FormGroup controlId="formGroupName" as={Col}>
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" name="name" className="mb-3" />
+            <Form.Control
+              type="text"
+              name="name"
+              className={`mb-3 ${darkMode ? "review-field-dark" : ""}`}
+            />
           </FormGroup>
           <FormGroup controlId="formGroupReview">
-            <Form.Label className="mt-2">Your Review</Form.Label>
-            <Form.Control
-              as="textarea"
-              name="review-data"
-              placeholder="I thought this was really cool..."
-              maxLength={500}
-            />
+            <Form.Label>Your Review</Form.Label>
+            <div className="position-relative">
+              <Form.Control
+                as="textarea"
+                name="review-data"
+                placeholder="I thought this was really cool..."
+                maxLength={500}
+                onChange={(e) => setReviewCharCount(e.target.value.length)}
+                className={`${darkMode ? "review-field-dark" : ""}`}
+              />
+              <div
+                className={`position-absolute review-textcount ${
+                  reviewCharCount >= 400 ? "text-warning" : ""
+                } ${reviewCharCount == 500 ? "text-danger" : ""}`}
+              >
+                {reviewCharCount}/500
+              </div>
+            </div>
           </FormGroup>
           <Button
             variant="success"
@@ -102,7 +124,14 @@ export default function ReviewModal({
           </Button>
         </Form>
       </Modal.Body>
-      <Dialog open={noRatingVisible}>
+      <Dialog
+        open={noRatingVisible}
+        sx={{
+          "& .MuiPaper-root": {
+            backgroundColor: `${darkMode ? "darkgrey" : ""}`,
+          },
+        }}
+      >
         <DialogTitle>Rating Required</DialogTitle>
         <DialogContent>
           You must provide a rating to submit a review.

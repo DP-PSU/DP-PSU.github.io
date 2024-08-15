@@ -26,18 +26,14 @@ export default function NavigationBar({
           Cheap PSU Transfer Credit
         </Navbar.Brand>
         <NavDropdown title="Jump To" className="text-muted">
-          <NavDropdown.Item href="#sophia">Sophia Learning</NavDropdown.Item>
-          <NavDropdown.Item href="#tesu">
-            Thomas Edison St University
-          </NavDropdown.Item>
+          <NavDropdown.Item href="#sophia">Sophia</NavDropdown.Item>
+          <NavDropdown.Item href="#tesu">TESU</NavDropdown.Item>
           <NavDropdown.Item href="#straighterline">
             Straighterline
           </NavDropdown.Item>
           <NavDropdown.Item href="#westcott">WestCott</NavDropdown.Item>
-          <NavDropdown.Item href="#clep">
-            College Level Examination Program
-          </NavDropdown.Item>
-          <NavDropdown.Item href="#dsst">DSST Exams</NavDropdown.Item>
+          <NavDropdown.Item href="#clep">CLEP</NavDropdown.Item>
+          <NavDropdown.Item href="#dsst">DSST</NavDropdown.Item>
           <NavDropdown.Item href="#coursera">Coursera</NavDropdown.Item>
           <NavDropdown.Item href="#studycom">Study.com</NavDropdown.Item>
           <NavDropdown.Item href="#studyhall">Study Hall</NavDropdown.Item>

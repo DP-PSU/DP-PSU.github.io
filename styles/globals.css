@@ -25,3 +25,13 @@
 .studycom-card-dark {
   background-color: #3d3d3d;
 }
+
+.review-field-dark {
+  background-color: #c2bfbf !important;
+}
+
+.review-textcount {
+  bottom: 5px;
+  right: 10px;
+  font-size: small;
+}

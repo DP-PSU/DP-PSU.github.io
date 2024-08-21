@@ -11,6 +11,15 @@ export async function POST(req: Request) {
 
   const { _option, _name, _rating, review } = await req.json();
 
+  if (!review.length)
+    return new NextResponse(
+      JSON.stringify({ status: 200, message: "Review has no text." }),
+      {
+        status: 200,
+        statusText: "Review has no text.",
+      }
+    );
+
   const perspectiveReq = await fetch(
     `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${process.env.PERSPECTIVE_API_KEY}`,
     {

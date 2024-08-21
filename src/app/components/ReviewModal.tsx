@@ -155,8 +155,9 @@ export default function ReviewModal({
           Your review was flagged as having toxicity, spam, or profanity. Please
           resubmit your review.
           <br />
-          If you believe this is an error, please contact the person who
-          referred you to this website with the text of your review.
+          If you believe this is an error (the API used for this is not
+          flawless), please contact the person who referred you to this website
+          with the text of your review.
         </DialogContent>
         <DialogActions>
           <MaterialUIButton onClick={() => setBadReviewVisible(false)}>

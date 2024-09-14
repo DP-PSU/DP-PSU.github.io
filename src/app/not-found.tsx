@@ -21,12 +21,23 @@ export default function NotFound() {
     };
   }, [redirCountdown]);
 
+  const [dark404, setDark404] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedMode = localStorage.getItem("darkMode");
+      setDark404(savedMode ? JSON.parse(savedMode) : true);
+    }
+  }, []);
+
   return (
     <>
       <title>404 - Page Not Found</title>
       <Container
         fluid
-        className="d-flex flex-column justify-content-center align-items-center vh-100"
+        className={`${
+          dark404 ? "bg-dark text-light" : ""
+        } d-flex flex-column justify-content-center align-items-center vh-100`}
       >
         <h1 className="text-center">
           <span style={{ color: "red" }}>404</span> |{" "}

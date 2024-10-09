@@ -3,7 +3,9 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function CourseraOption({ darkMode }: Readonly<{ darkMode: boolean }>) {
+export default function CourseraOption({
+  darkMode,
+}: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -24,7 +26,10 @@ export default function CourseraOption({ darkMode }: Readonly<{ darkMode: boolea
 
   return (
     <>
-      <Card id="coursera" className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="coursera"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #6</Card.Header>
         <Card.Img
           variant="top"
@@ -48,7 +53,9 @@ export default function CourseraOption({ darkMode }: Readonly<{ darkMode: boolea
             badges that can be granted for credit.
             <br />
             <br />
-            <strong>Good for EE 456, BA XFR100, CMPSC XFR200</strong>
+            <strong>
+              Good for EE 456 (until Summer 2024), BA XFR100, CMPSC XFR200
+            </strong>
             <br />
             <br />
             <strong>Type: Self-Paced Course (Pass / Fail)</strong>
@@ -150,10 +157,11 @@ function CourseraModal({
         <h2>Notes</h2>
         <p>
           The Deep Learning Specialization offers EE 456 - Intro to Neural
-          Networks. This course is great for any majors in the school of EECS
-          (counts as an elective) and perhaps any other engineering major. The
-          Google certificates can be used to fufill department list (free
-          credits) for some majors.{" "}
+          Networks (ONLY until Summer 2024 - after it you only get ten general
+          engineering credits). This course is great for any majors in the
+          school of EECS (counts as an elective) and perhaps any other
+          engineering major. The Google certificates can be used to fufill
+          department list (free credits) for some majors.{" "}
         </p>
       </Modal.Body>
       <Modal.Footer>

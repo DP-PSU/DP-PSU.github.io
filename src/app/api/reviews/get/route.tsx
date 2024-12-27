@@ -1,15 +1,7 @@
 import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
-const allowedOrigins = [
-  "https://dp-psu.vercel.app",
-  "https://psu-transfer-credit.vercel.app",
-  "http://localhost:3000",
-];
 
 export async function POST(req: Request) {
-  if (!allowedOrigins.includes(req.headers.get("origin")!))
-    return new NextResponse(null, { status: 403, statusText: "Forbidden" });
-
   const { option } = await req.json();
 
   const client = new MongoClient(process.env.MONGODB_CONNECTION_URI!);

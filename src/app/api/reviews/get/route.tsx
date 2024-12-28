@@ -1,14 +1,12 @@
-import { MongoClient } from "mongodb";
+import mongoClientPromise from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const { option } = await req.json();
 
-  const client = new MongoClient(process.env.MONGODB_CONNECTION_URI!);
+  const client = await mongoClientPromise;
 
   try {
-    await client.connect();
-
     const reviews = client.db("dp-psu-website").collection("reviews");
 
     const result = await reviews
@@ -16,8 +14,6 @@ export async function POST(req: Request) {
         option: option,
       })
       .toArray();
-
-    client.close();
 
     return new NextResponse(JSON.stringify(result), {
       status: 200,

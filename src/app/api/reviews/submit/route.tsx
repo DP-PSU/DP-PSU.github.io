@@ -1,14 +1,12 @@
-import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
+import mongoClientPromise from "@/lib/mongodb";
 
 export async function POST(req: Request) {
   const { option, name, rating, review } = await req.json();
 
-  const client = new MongoClient(process.env.MONGODB_CONNECTION_URI!);
+  const client = await mongoClientPromise;
 
   try {
-    await client.connect();
-
     const reviews = client.db("dp-psu-website").collection("reviews");
 
     const result = await reviews.insertOne({
@@ -17,8 +15,6 @@ export async function POST(req: Request) {
       rating: rating,
       reviewText: review,
     });
-
-    client.close();
 
     return new NextResponse(
       JSON.stringify({ message: "Review added successfully", result }),

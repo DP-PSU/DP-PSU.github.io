@@ -5,23 +5,15 @@ declare global {
   let _mongoClientPromise: Promise<MongoClient> | undefined;
 }
 
-const uri = process.env.MONGODB_CONNECTION_URI!;
-if (!uri) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable in .env.local"
-  );
-}
-
 let client: MongoClient;
 let mongoClientPromise: Promise<MongoClient>;
-console.log("in mongodb.ts!");
 
-client = new MongoClient(uri, {
-	maxPoolSize: 100,
-	maxIdleTimeMS: 45000,
-	connectTimeoutMS: 10000,
-	socketTimeoutMS: 45000,
-	waitQueueTimeoutMS: 5000
+client = new MongoClient(process.env.MONGODB_CONNECTION_URI!, {
+  maxPoolSize: 25,
+  maxIdleTimeMS: 45000,
+  connectTimeoutMS: 10000,
+  socketTimeoutMS: 20000,
+  waitQueueTimeoutMS: 5000,
 });
 mongoClientPromise = client.connect();
 

@@ -1,5 +1,5 @@
 import { Card, CardContent, Rating, styled } from "@mui/material";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, JSX, useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { optionToTitle } from "./TransferOptions";
 

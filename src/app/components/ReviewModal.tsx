@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { Button, Col, Form, FormGroup, Modal, Row } from "react-bootstrap";
 import { optionToTitle } from "./TransferOptions";
+import { load } from "@fingerprintjs/botd";
 
 export default function ReviewModal({
   option,
@@ -35,6 +36,7 @@ export default function ReviewModal({
   const [noRatingVisible, setNoRatingVisible] = useState(false);
   const [badReviewVisible, setBadReviewVisible] = useState(false);
   const [reviewCharCount, setReviewCharCount] = useState(0);
+  const [isBotDetected, setIsBotDetected] = useState(false);
 
   useEffect(() => {
     const modalContent = document.querySelector(
@@ -45,9 +47,21 @@ export default function ReviewModal({
     }
   }, [darkMode, visible]);
 
+  useEffect(() => {
+    const initBotDetection = async () => {
+      const botd = await load();
+      const res = botd.detect();
+
+      if (res.bot) {
+        setIsBotDetected(true);
+      }
+    };
+    initBotDetection();
+  }, []);
+
   return (
     <Modal
-      show={visible}
+      show={visible && !isBotDetected}
       onHide={() => {
         handleClose();
         setReviewCharCount(0);

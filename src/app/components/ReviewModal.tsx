@@ -101,7 +101,7 @@ export default function ReviewModal({
             </Col>
           </Row>
           <FormGroup controlId="formGroupName" as={Col}>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Name (Optional)</Form.Label>
             <Form.Control
               type="text"
               name="name"

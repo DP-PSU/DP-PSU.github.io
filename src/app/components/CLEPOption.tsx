@@ -3,7 +3,9 @@ import { Button, Card, Modal } from "react-bootstrap";
 import ReviewModal from "./ReviewModal";
 import ViewRatingsModal from "./ViewRatingsModal";
 
-export default function CLEPOption({ darkMode }: Readonly<{ darkMode: boolean }>) {
+export default function CLEPOption({
+  darkMode,
+}: Readonly<{ darkMode: boolean }>) {
   const [visible, setVisible] = useState(false);
   const [reviewVisible, setReviewVisible] = useState(false);
 
@@ -15,7 +17,7 @@ export default function CLEPOption({ darkMode }: Readonly<{ darkMode: boolean }>
 
   useEffect(() => {
     const modalContent = document.querySelector(
-      ".modal-content"
+      ".modal-content",
     ) as HTMLDivElement | null;
     if (darkMode && modalContent) {
       modalContent.style.backgroundColor = " #d3d3d3";
@@ -24,11 +26,14 @@ export default function CLEPOption({ darkMode }: Readonly<{ darkMode: boolean }>
 
   return (
     <>
-      <Card id="clep" className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}>
+      <Card
+        id="clep"
+        className={`mb-4 ${darkMode ? "bg-dark text-light" : ""}`}
+      >
         <Card.Header>Transfer Option #4</Card.Header>
         <Card.Img
           variant="top"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CLEP_logo_%282017%29.svg/1200px-CLEP_logo_%282017%29.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CLEP_logo_%282017%29.svg/500px-CLEP_logo_%282017%29.svg.png"
           alt="CLEP image"
           style={{ width: "15%" }}
           className="mt-2 ms-2"

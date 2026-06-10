@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Cheap PSU Transfer Credit",
   description:
     "Cheap Transfer Credit for PSU students (ranging from free courses to courses that cost less than 500 bucks). These credit sources include Sophia Learning, Thomas Edison University, CLEP, DSST, Study.com, Arizona State University, and American Dream Academy.",
+  icons: "icon.png",
   keywords: ["transfer", "transfer credit", "cheap", "penn state", "psu"],
 };
 
